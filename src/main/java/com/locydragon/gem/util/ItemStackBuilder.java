@@ -28,7 +28,7 @@ public class ItemStackBuilder {
 		item.setItemMeta(meta);
 		return this;
 	}
-
+    //String... 用这个可变长类型更好 - a39
 	public ItemStackBuilder lore(String[] lore) {
 		ItemMeta meta = item.getItemMeta();
 		meta.setLore(Arrays.asList(lore));

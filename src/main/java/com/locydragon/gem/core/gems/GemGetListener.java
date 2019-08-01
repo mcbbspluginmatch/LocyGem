@@ -30,6 +30,7 @@ public class GemGetListener implements Listener {
 				e.getPlayer().setItemInHand(handIn);
 				e.getPlayer().updateInventory();
 				ItemStack needToGive = GemItems.holeStone;
+				// 虽然有更好的写法 但是这下面每个else if后的第一个条件是无意义的啊 既然已经执行到这个else肯定会满足的 - a39
 				if (randomNum <= 15) {
 					needToGive = GemItems.holeStone;
 				} else if (randomNum > 15 && randomNum <= 30) {

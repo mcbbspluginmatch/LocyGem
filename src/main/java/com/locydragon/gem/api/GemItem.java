@@ -20,7 +20,7 @@ public class GemItem {
 	public static final char fixHole = '۞';
 	private ItemStack item;
 	private List<String> itemData;
-
+    //这方法什么魔鬼逻辑  - a39
 	private GemItem(ItemStack item) {
 		this.item = item;
 		// 的确应该注意下 ItemMeta是否存在 而且 有hasItemMeta和hasLore方法为啥不用呢 —— 星空
@@ -41,6 +41,7 @@ public class GemItem {
 
 	public ItemStack getItem() {
 		return item;
+		//其实建议返回的时候克隆一下ItemStack - a39
 	}
 
 	public ElementType getElement() {
@@ -50,6 +51,7 @@ public class GemItem {
 		for (String obj : itemData) {
 			if (obj.contains("元素")) {
 				String last = obj.substring(obj.length() - 1, obj.length());
+				//下面这段switch不应该出现在ElementType里面作为一个静态方法吗 - a39
 				switch (last) {
 					case "木":
 						return ElementType.WOOD;
@@ -79,6 +81,7 @@ public class GemItem {
 	public boolean doHole(Player who) { //打孔
 		int id = this.item.getTypeId();
 		// 这里的一堆 magic value 可读性较低，建议注释标明 —— 754503921
+		// 虽然我能猜到这个是物品id 但是为什么不直接用!= - a39
 		if (!(id >= 298 && id <= 317) && !(id == 267)
 				&& !(id == 268) && !(id == 272) && !(id == 276) && !(id == 261)) {
 			return false;
@@ -86,6 +89,7 @@ public class GemItem {
 		if (hasHole()) {
 			return false;
 		}
+		//???? 下面这行调用是遗留的代码吗 - a39
 		cleanAndRandomElement();
 		int holeNum = random.nextInt(11);
 		while (holeNum <= 0 || holeNum >= 11) {
@@ -142,6 +146,8 @@ public class GemItem {
 		return hole;
 	}
 
+
+    //这段doc注释不合规啊 - a39
 	/**
 	 * Not debug yet!
 	 *
