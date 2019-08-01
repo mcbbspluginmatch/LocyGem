@@ -55,6 +55,7 @@ public class IdentifyItemListener implements Listener {
 	public static boolean isInODS(double ods) {
 		double random = Math.random() * 100;
 		int intODS = (int)random;
+		// 为什么不 return intODS <= ods; 呢? —— 星空
 		if (intODS <= ods) {
 			return true;
 		}
