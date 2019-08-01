@@ -80,6 +80,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--> 为什么会有两个 compiler plugin —— 754503921 <-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

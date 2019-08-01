@@ -26,6 +26,7 @@ public class InlayListener implements Listener {
 		if (handIn != null && handIn.getType() != Material.BARRIER && handIn.hasItemMeta() && handIn.getItemMeta().hasLore()) {
 			GemItem gemItem = GemItem.forItem(zero);
 			if (ItemStackBuilder.equalsInSet(handIn, GemItems.ignoreArmor, EqualsInfo.ABOUT_LORE, EqualsInfo.ABOUT_NAME)) {
+				// 以下的方法中相同片段重复出现多次，为什么不提取出来作为一个方法 —— 754503921
 				if (zero == null || gemItem.getHoles() == 0) {
 					e.getPlayer().sendMessage(LocyGem.out + "很抱歉,这个物品无法镶嵌!o(╥﹏╥)o");
 					return;

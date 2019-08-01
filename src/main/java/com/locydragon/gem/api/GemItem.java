@@ -24,6 +24,7 @@ public class GemItem {
 	private GemItem(ItemStack item) {
 		this.item = item;
 		this.itemData = item.getItemMeta().getLore();
+		// 这里 idea 甚至有 warning，没有 item meta 的时候就已经暴毙了，下面的检查也统统无意义 —— 754503921
 		if (item == null) {
 			this.itemData = new ArrayList<>();
 			return;
@@ -65,6 +66,7 @@ public class GemItem {
 		return ElementType.EMPTY;
 	}
 
+	// 从命名上看应该是一个有副作用的方法，但是仅仅做了一个判断，那么这个方法的唯一一个调用有什么用呢 —— 754503921
 	public boolean cleanAndRandomElement() {
 		if (item.getType() != Material.DIAMOND_SWORD) {
 			return false;
@@ -74,6 +76,7 @@ public class GemItem {
 
 	public boolean doHole(Player who) { //打孔
 		int id = this.item.getTypeId();
+		// 这里的一堆 magic value 可读性较低，建议注释标明 —— 754503921
 		if (!(id >= 298 && id <= 317) && !(id == 267)
 				&& !(id == 268) && !(id == 272) && !(id == 276) && !(id == 261)) {
 			return false;
@@ -120,6 +123,7 @@ public class GemItem {
 	}
 
 	public int getHoles() {
+		// 一共遍历了两次 lore 列表 —— 754503921
 		if (!hasHole()) {
 			return 0;
 		}
