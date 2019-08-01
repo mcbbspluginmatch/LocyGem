@@ -93,6 +93,7 @@ public class DamageListener implements Listener {
 			}
 		}
 	}
+	//AA BB命名规范一些
 	public static List<Location> getBlocks(Location AA, Location BB) {
 		if (!AA.getWorld().getName().equals(BB.getWorld().getName())) {
 			throw new IllegalArgumentException();
