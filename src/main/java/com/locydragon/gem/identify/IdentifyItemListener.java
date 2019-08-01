@@ -43,6 +43,7 @@ public class IdentifyItemListener implements Listener {
 				e.getInventory().setResult(empty[0]);
 				((Player)e.getWhoClicked()).updateInventory();
 				((Player)e.getWhoClicked()).playSound(e.getWhoClicked().getLocation(), Sound.ANVIL_BREAK, 1, 1);
+				//提示稍微有点硬编码，能自定义最好
 				e.getWhoClicked().sendMessage(LocyGem.out + "§3啊嘞(ｷ｀ﾟДﾟ´)!! §7合成失败了!!");
 
 			} else {
