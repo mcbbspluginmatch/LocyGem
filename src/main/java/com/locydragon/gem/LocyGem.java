@@ -45,6 +45,7 @@ public class LocyGem extends JavaPlugin {
 		Bukkit.getLogger().info("本插件作为插件开发比赛参赛作品");
 		Bukkit.getLogger().info("本插件为免费插件，作者QQ: 2424441676");
 		// 上面的是 tab 下面的是空格 你 有 问 题 —— 754503921
+		// 复议 alt + shift + F - a390807154
         instance = this;
         saveDefaultConfig();
         equipList = getConfig().getIntegerList("ID");
