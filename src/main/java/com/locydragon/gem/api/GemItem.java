@@ -23,6 +23,7 @@ public class GemItem {
 
 	private GemItem(ItemStack item) {
 		this.item = item;
+		// 的确应该注意下 ItemMeta是否存在 而且 有hasItemMeta和hasLore方法为啥不用呢 —— 星空
 		this.itemData = item.getItemMeta().getLore();
 		// 这里 idea 甚至有 warning，没有 item meta 的时候就已经暴毙了，下面的检查也统统无意义 —— 754503921
 		if (item == null) {
@@ -68,6 +69,7 @@ public class GemItem {
 
 	// 从命名上看应该是一个有副作用的方法，但是仅仅做了一个判断，那么这个方法的唯一一个调用有什么用呢 —— 754503921
 	public boolean cleanAndRandomElement() {
+		// 这里可以一行解决吧 其他的同上 —— 星空
 		if (item.getType() != Material.DIAMOND_SWORD) {
 			return false;
 		}
